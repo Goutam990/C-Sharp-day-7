@@ -228,4 +228,9 @@ public class HelloWorld
     }
   
 }
+
 ==========================================================================
+How to remeber them :
+Action : - I'm taking an action! I'm doing something.
+Func   : - similar to mathematical fucntion -- will took some input nd return u some value.
+Predicate :- special Func that only gives yes/no in return (Cheak the condition).
