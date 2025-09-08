@@ -1,0 +1,86 @@
+Collections ek jaise "containers" hote hain jisme aap ek saath multiple cheezein (data items) rakhte ho. Jaise aapka  bag ek container hai jisme books, copies, pencil sab ek saath rehte hain.
+
+Simple Definition: Collections in C# are specialized classes to store and manage groups of related objects.
+
+ Ek array ka fixed size ka hota hai. Agar aapko 10 items se zyada store karne hain, toh aap nahi kar sakte.
+   Instead , ArrayList ek aisa hi dynamic size wala container tha jo purane C# versions mein use hota tha.
+   Problem with ArrayList - AList is not Type Safe
+   ~ compiler ko pata nahi hota ki koi bhi  index par kis type ki value hai(string or bool or num). Isliye aapko explicitly type cast karna padta hai, which      	is risky.
+
+Agar ArrayList type-safe nahi hai, aur hme ek aisi dynamic list chahiye jo type-safe ho - Then Hum Generics ka use karenge.
+   List<T> (Generics wali list) dynamic size bhi deti hai (ArrayList ki tarah) aur type-safe bhi hoti hai (Array ki tarah).
+   Isliye, aaj kal ArrayList ki jagah List<T> use ki jati hai.
+
+Q. List<T> mein T ka kya matlab hota hai? Aur yeh type-safety kaise provide karti hai?
+   T ka matlab hai Type. Jab aap list declare karte ho, toh T ki jagah aap koi b specific data type (jaise string, int, etc.) rakh dete ho.
+    
+   For Example:
+   List<string> → T = string (Sirf strings allow hain) 
+   List<int> → T = int (Sirf numbers allow hain)
+   
+   Isse compiler ko pata rehta hai ki list mein kis type ki values jaani chahiye, aur woh aapko compile time par hi error bata deta hai agar aap galat type 	add karne try karen.
+
+Q. List<T> ko use karke ek simple example bana sakte h? Ek List<int> declare karo, usme kuch numbers add karo, aur phir unhe print karo.
+   List<int> list1 = new List<int>();
+   list1.Add(1);  // ✅ 'A' capital hai
+   list1.Add(2);
+
+  foreach(var item in list1)
+  {
+    Console.WriteLine(item); // ✅ Console.WriteLine sahi hai
+  }
+
+Q. var keyword use kiya foreach loop m. Kya aap bata sakte hain ki var ki jagah hum explicitly int kyun likh sakte hain aur dono mein kya farak hoga?
+    aap dono tarah se likh sakte hain: 
+    1.  Using var (Compiler type decide karega) 
+    2.   Using int (Explicitly type batana) -->  foreach(int i in list1) 
+
+Q. Arrays fixed size ke hote hain, aur List<T> dynamic. Dono mein ek aur major difference hai. Kya aap soch sakte hain?
+   Array: Fixed size, fast access.
+   List: Dynamic size, type-safe.
+    ~Yeh dono collections ke important pillars hain.
+
+Q.  aisi list chahiye jahan har item unique ho (no duplicates). Jaise students ke roll numbers. Aisa kaun sa collection use karenge?
+    Dictionary ek brilliant choice hai, lekin woh key-value pairs ke liye hoti hai (jaise roll number + student name).
+
+    Agar sirf unique values (jaise roll numbers) store karne hain, toh ek aur special collection hai jo exactly yahi kaam karti hai.
+
+    Uska naam hai: HashSet<T>
+
+   HashSet<int> rollNumbers = new HashSet<int>();
+   rollNumbers.Add(101);
+   rollNumbers.Add(102);
+   rollNumbers.Add(101); // ❌ Duplicate! Ye add nahi hoga.
+
+   Console.WriteLine(rollNumbers.Count); // Output: 2
+
+Q. diff b/w HashSet nd Dic?
+  HashSet aur Dictionary dono hi uniqueness guarantee karte hain. In dono mein fundamental kya farak hai?
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
