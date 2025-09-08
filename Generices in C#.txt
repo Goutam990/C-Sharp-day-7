@@ -1,0 +1,46 @@
+using System;
+using System.Collections.Generic; // You need this for List<T>
+
+public class HelloWorld
+{
+    public static void Main(string[] args)
+    {
+        // List in a "string only" box.
+        List<string> listOfStrings = new List<string>(); 
+        // List in an "int only" box.
+        List<int> listOfIntegers = new List<int>();
+        
+        // Adding items - Use .Add() method
+        listOfStrings.Add("hello hello");  // ✅ Allows -- "hello hello" is a string
+        // listOfStrings.Add(124);         // ❌ COMPILE ERROR! 124 is not a string.
+        
+        listOfIntegers.Add(124);           // ✅ Allows -- 124 is an integer
+        // listOfIntegers.Add("hello");    // ❌ COMPILE ERROR! "hello" is not an int.
+        
+        
+        // Generic<T> Explanation:
+        // Generics are a blueprint.
+        // 'T' is replaced with any other data type, which makes it type-safe.
+        // Like in List<string>, if you try to put anything other than a string,
+        // it will throw an error.
+        
+        // This makes code flexible and safe. We write one general List recipe,
+        // but can use it for string, int, double, or even our own custom classes.
+        
+        // Generics help us write code that can work with many different data types (general),
+        // but when we use it, we can lock it down to one specific type to keep things safe.
+
+        // If you want a list that can hold ANY type, use List<object>
+        List<object> listOfAll = new List<object>();
+        listOfAll.Add("address : scheme no 89"); // String
+        listOfAll.Add(23243294);                 // Integer
+        listOfAll.Add(true);                     // Boolean
+        
+        // Loop through and print all items
+        Console.WriteLine("Items in listOfAll:");
+        foreach (var item in listOfAll)
+        {
+            Console.WriteLine(item);
+        }
+    }
+}
